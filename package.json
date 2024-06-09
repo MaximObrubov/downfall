@@ -1,0 +1,31 @@
+{
+  "name": "downfall",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Visual experiment to endless scroll",
+  "scripts": {
+    "build": "rollup --config",
+    "start": "rollup --config rollup.config.dev.js --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaximObrubov/downfall.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MaximObrubov/downfall/issues"
+  },
+  "homepage": "https://github.com/MaximObrubov/downfall#readme",
+  "devDependencies": {
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "rollup": "^4.18.0",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-sass": "^1.12.22",
+    "rollup-plugin-serve": "^1.1.1",
+    "tslib": "^2.6.3"
+  }
+}
