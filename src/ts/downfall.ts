@@ -61,12 +61,10 @@ export class Downfall {
 
     await this._createImage(toAdd).then((image) => {
       currentColumn.node.appendChild(image);
-      currentColumn.threshold = image.getBoundingClientRect().bottom;
+      currentColumn.threshold += image.offsetHeight;
       // TODO: trigger opacity transition after element creation  
       // window.getComputedStyle(image).opacity;
-      setTimeout(() => {
-        image.classList.add(this.SHOWN_KLASS);
-      }, 400);
+      image.classList.add(this.SHOWN_KLASS);
     });
 
     if (sources.length) this.add(sources);
@@ -88,7 +86,7 @@ export class Downfall {
       img.style.marginBottom = this.options.gap;
       img.style.width = "100%";
 
-      if (img.complete) resolve(img);
+      // if (img.complete) resolve(img);
       img.onload = () => {
         resolve(img);
       };
