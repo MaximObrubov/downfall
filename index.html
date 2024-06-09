@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="./dist/downfall.css">
   <style>
     html, body {
       margin: 0;
@@ -46,5 +47,35 @@
 
 
   <script src="./dist/downfall.js"></script>
+  <script>
+    const d = new Downfall.Downfall(document.getElementById("downfall"));
+    d.add([
+      "https://picsum.photos/200/300?random=1",
+      "https://picsum.photos/300/300?random=2",
+      "https://picsum.photos/200/200?random=3",
+      "https://picsum.photos/500/300?random=4",
+      "https://picsum.photos/500/300?random=5",
+      "https://picsum.photos/300/300?random=6",
+      "https://picsum.photos/300/300?random=6",
+      "https://picsum.photos/300/400?random=6",
+      "https://picsum.photos/300/500?random=6",
+      "https://picsum.photos/300/320?random=6",
+    ]);
+
+    setTimeout(() => {
+      d.add([
+        "https://picsum.photos/200/300?random=1",
+        "https://picsum.photos/300/300?random=2",
+        "https://picsum.photos/200/200?random=3",
+        "https://picsum.photos/500/300?random=4",
+        "https://picsum.photos/500/300?random=5",
+        "https://picsum.photos/300/300?random=6",
+        "https://picsum.photos/300/300?random=6",
+        "https://picsum.photos/300/400?random=6",
+        "https://picsum.photos/300/500?random=6",
+        "https://picsum.photos/300/320?random=6",
+      ]);
+    }, 3_000);
+  </script>
 </body>
 </html>

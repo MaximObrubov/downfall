@@ -1,0 +1,12 @@
+.downfall {
+
+  &__column {
+    img {
+      opacity: 0;
+      transition: opacity 0.3s;
+      &.shown {
+        opacity: 1;
+      }
+    }
+  }
+}
