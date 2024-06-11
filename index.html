@@ -13,7 +13,7 @@
     body {
       font-family: Helvetica, Arial, sans-serif;
       font-size: 14px;
-      background-color: lightblue;
+      background-color: white;
       padding-top: 1rem;
     }
 
@@ -21,7 +21,7 @@
       margin: 0 auto;
       max-width: 1024px;
       padding: 1rem 3rem;
-      background-color: white;
+      background-color: #ecf6f9;
     }
 
     .container.not-filled {
@@ -45,6 +45,21 @@
     </div>
   </div>
 
+  <template id="downfall-template">
+    <div class="downfall-element">
+      <img class="downfall-element__image" data-template-img alt="">
+      <h2 class="downfall-element__title" data-template-title></h2>
+      <p class="downfall-element__text" data-template-text></p>
+    </div>
+  </template>
+
+  <template id="downfall-template--no-img">
+    <div class="downfall-element">
+      <h2 class="downfall-element__title" data-template-title></h2>
+      <p class="downfall-element__text" data-template-text></p>
+    </div>
+  </template>
+
 
   <script src="./dist/downfall.js"></script>
   <script>
@@ -58,12 +73,43 @@
       });
     }
 
-    const d = new Downfall.Downfall(document.getElementById("downfall"));
-    d.add(getImages(12));
+    const container = document.getElementById("downfall") 
+    const d = new Downfall.Downfall(container);
+    const template = document.getElementById("downfall-template");
+    const templateNoImg = document.getElementById("downfall-template--no-img");
 
-    setTimeout(() => {
-      d.add(getImages(12));
-    }, 5_000);
+    const noImageElements = [
+      {
+        data: {
+          img: getImages(1)[0],
+          title: "Some element title",
+          text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident aliquam voluptatum itaque ipsa vel at distinctio tenetur delectus, blanditiis eius quisquam nemo natus? Deleniti cum eius, a quia officia nemo."
+        },
+        template,
+      },
+      {
+        data: {
+          img: getImages(1)[0],
+          title: "Some other title",
+          text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident aliquam voluptatum itaque ipsa vel at distinctio tenetur delectus, blanditiis eius quisquam nemo natus? Deleniti cum eius, a quia officia nemo."
+        },
+        template,
+      },      
+      {
+        data: {
+          title: "Some third title",
+          text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident aliquam voluptatum itaque ipsa vel at distinctio tenetur delectus, blanditiis eius quisquam nemo natus? Deleniti cum eius, a quia officia nemo."
+        },
+        template: templateNoImg,
+      },
+    ];
+    d.add(noImageElements.concat(getImages(12)));
+
+    window.addEventListener('scroll', event => {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        d.add(getImages(12));
+      }
+    });
   </script>
 </body>
 </html>

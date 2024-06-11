@@ -1,9 +1,20 @@
 .downfall {
 
   &__column {
-    img {
+    min-width: 0;
+
+    img { width: 100%; }
+
+    .downfall-element {
+      padding: 1rem;
+      background-color: white;
+    }
+    
+    >img, .downfall-element {
+      margin-bottom: 1rem;
+      border-radius: 0.5rem;
       opacity: 0;
-      transition: opacity 0.3s;
+      transition: opacity 0.45s;
       &.shown {
         opacity: 1;
       }
