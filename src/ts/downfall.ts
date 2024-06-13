@@ -120,10 +120,12 @@ export class Downfall {
     Object.keys(data).forEach(key => {
       const targets = clone.querySelectorAll(`[data-template-${key}]`);
       Array.from(targets).forEach(t => {
-        if (t.tagName === "IMG") {
-          (t as HTMLImageElement).src = data[key];
-        } else {
+        if (typeof data[key] === "string") {
           t.textContent = data[key];
+        } else if (typeof data[key] === 'object' && !Array.isArray(data[key]) && data[key] !== null) {
+          Object.keys(data[key]).forEach(attr => {
+            t.setAttribute(attr, data[key][attr]);
+          });
         }
       });
     });

@@ -50,6 +50,7 @@
       <img class="downfall-element__image" data-template-img alt="">
       <h2 class="downfall-element__title" data-template-title></h2>
       <p class="downfall-element__text" data-template-text></p>
+      <button data-template-action>Click me!</button>
     </div>
   </template>
 
@@ -81,15 +82,18 @@
     const noImageElements = [
       {
         data: {
-          img: getImages(1)[0],
+          img: { src: getImages(1)[0] },
           title: "Some element title",
-          text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident aliquam voluptatum itaque ipsa vel at distinctio tenetur delectus, blanditiis eius quisquam nemo natus? Deleniti cum eius, a quia officia nemo."
+          text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident aliquam voluptatum itaque ipsa vel at distinctio tenetur delectus, blanditiis eius quisquam nemo natus? Deleniti cum eius, a quia officia nemo.",
+          action: {
+            onclick: "alert(123)"
+          }
         },
         template,
       },
       {
         data: {
-          img: getImages(1)[0],
+          img: { src: getImages(1)[0] },
           title: "Some other title",
           text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident aliquam voluptatum itaque ipsa vel at distinctio tenetur delectus, blanditiis eius quisquam nemo natus? Deleniti cum eius, a quia officia nemo."
         },
